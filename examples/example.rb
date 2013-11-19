@@ -1,4 +1,4 @@
-require './lib/scrubber'
+require 'scrubber'
 
 RSpec.configure do |config|
   filename = ENV['HOME'] + '/order.txt'
