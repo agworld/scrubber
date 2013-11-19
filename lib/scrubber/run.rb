@@ -1,4 +1,4 @@
-require 'lib/scrubber/list'
+require './lib/scrubber/list'
 
 class Run
   def initialize

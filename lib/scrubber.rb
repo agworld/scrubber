@@ -1,4 +1,4 @@
-require 'lib/scrubber/run'
+require './lib/scrubber/run'
 
 module Scrubber
   class << self

@@ -1,4 +1,4 @@
-require 'lib/scrubber/presenter'
+require './lib/scrubber/presenter'
 
 module Scrubber
   class List

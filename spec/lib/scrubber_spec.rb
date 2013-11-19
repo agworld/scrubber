@@ -1,7 +1,7 @@
 require 'tmpdir'
 require 'tempfile'
-require 'spec_helper'
-require 'lib/scrubber'
+require './spec/spec_helper'
+require './lib/scrubber'
 
 module Scrubber
   describe Scrubber do

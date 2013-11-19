@@ -1,5 +1,5 @@
-require 'spec_helper'
-require 'lib/scrubber/list'
+require './spec/spec_helper'
+require './lib/scrubber/list'
 
 module Scrubber
   describe List do
