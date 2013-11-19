@@ -1,5 +1,5 @@
-require_relative '../../spec_helper'
-require_relative '../../../lib/scrubber/presenter'
+require 'spec_helper'
+require 'lib/scrubber/presenter'
 
 module Scrubber
   describe Presenter do

@@ -1,7 +1,7 @@
 require 'tmpdir'
 require 'tempfile'
-require_relative '../spec_helper'
-require_relative '../../lib/scrubber'
+require 'spec_helper'
+require 'lib/scrubber'
 
 module Scrubber
   describe Scrubber do
@@ -47,7 +47,7 @@ module Scrubber
       let(:group3) { RSpec::Core::ExampleGroup.describe("Group 3") }
 
       it "organises shuffled output into human- and machine-readable format" do
-        config = RSpecConfigDouble.new(seed: 324)
+        config = RSpecConfigDouble.new(:seed => 324)
 
         in_temp_path do |path|
           group1_subgroup1 = group1.describe('a subgroup')
@@ -72,13 +72,13 @@ module Scrubber
             group1_subgroup1_example1,
 
             group3,
-            group2,
+            group2
           )
         end
       end
 
       it "returns a shuffled list from the order_groups_and_examples block" do
-        config = RSpecConfigDouble.new(seed: 324)
+        config = RSpecConfigDouble.new(:seed => 324)
         Scrubber.record_rspec_run(config, '/tmp/not/used')
         expect(config.run_ordering_block(group1, group2).to_a).to eq(
           [group2, group1]
@@ -87,7 +87,8 @@ module Scrubber
 
       it "overwrites old record files" do
         config = RSpecConfigDouble.new
-        file = Tempfile.open('record file') do |file|
+        file = nil
+        Tempfile.open('record file') do |file|
           file << "some old record"
         end
 
@@ -101,7 +102,7 @@ module Scrubber
 
     describe "playing back an RSpec run" do
       it "returns items from the config block in the file's order" do
-        config = RSpecConfigDouble.new(seed: 123)
+        config = RSpecConfigDouble.new(:seed => 123)
 
         group1 = RSpec::Core::ExampleGroup.describe("Item 1")
         group2 = RSpec::Core::ExampleGroup.describe("Item 2")

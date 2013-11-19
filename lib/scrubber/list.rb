@@ -1,4 +1,4 @@
-require_relative 'presenter'
+require 'lib/scrubber/presenter'
 
 module Scrubber
   class List
@@ -29,8 +29,8 @@ module Scrubber
     end
 
     def shuffle(seed)
-      generator = Random.new(seed || 1)
-      List.new(items.sort_by { generator.rand(items.size) })
+      srand(seed || 1)
+      List.new(items.sort_by { rand(items.size) })
     end
 
     def sort_by_other(list)

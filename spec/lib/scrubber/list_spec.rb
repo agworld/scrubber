@@ -1,5 +1,5 @@
-require_relative '../../spec_helper'
-require_relative '../../../lib/scrubber/list'
+require 'spec_helper'
+require 'lib/scrubber/list'
 
 module Scrubber
   describe List do

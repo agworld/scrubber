@@ -1,4 +1,4 @@
-require_relative 'scrubber/run'
+require 'lib/scrubber/run'
 
 module Scrubber
   class << self
@@ -29,9 +29,9 @@ module Scrubber
       end
 
       context = {
-        run: run,
-        writer: method(:write_group),
-        file: file,
+        :run => run,
+        :writer => method(:write_group),
+        :file => file,
       }
       config.after(:suite) do
         context[:run].groups.each do |group|

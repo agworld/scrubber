@@ -38,7 +38,8 @@ module Scrubber
       end
 
       def line_number
-        group_block.source_location[1]
+        match = group_block.to_s.match(/.*:([\d]+)>/)
+        match ? match[1] : nil
       end
 
       def group_block
